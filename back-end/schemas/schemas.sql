@@ -1,14 +1,14 @@
-USE db_name;
+CREATE DATABASE market;
+USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the command does, please go read about them, its much better of delete them.
+-- If you don't know what the commands do, please go read about them, its much better of deleting them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
 -- CONSTRAINT:( is used to limit the type of data that can go into a table. 
 -- This ensures the accuracy and reliability of the data in the table. 
 -- If there is any violation between the constraint and the data action, the action is aborted.)
--- The UNIQUE" constraint ensures that all values in a column are different
--- 
+-- The UNIQUE" constraint ensures that all values in a column are differentshu
 CREATE TABLE Role(
     idRole INT NOT NULL,
     type VARCHAR(255) NULL,
