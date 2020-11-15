@@ -1,6 +1,6 @@
 USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the commands do, please go read about them, its much better of delete them.
+-- If you don't know what the commands do, please go read about them, Its much better of delete them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
@@ -9,19 +9,20 @@ USE market;
 -- If there is any violation between the constraint and the data action, the action is aborted.)
 -- The UNIQUE" constraint ensures that all values in a column are different
 CREATE TABLE Role(
-    idRole INT AUTO_INCREMENT NOT NULL,
+    idRole INT NOT NULL AUTO_INCREMENT,
     type VARCHAR(255) NULL,
     PRIMARY KEY (idRole)
 );
 CREATE TABLE user (
-    id_user INt AUTO_INCREMENT NOT NULL,
+    id_user INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(32) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     address VARCHAR(255) NOT NULL,
     Phone INT NOT NULL,
     Role_idRole INT NOT NULL,
-    created_at DATETIME,
+    create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user),
     UNIQUE INDEX id_user_UNIQUE (id_user ASC),
     UNIQUE INDEX email_UNIQUE (email ASC),
@@ -32,12 +33,12 @@ CREATE TABLE user (
     is_deleted TINYINT DEFAULT 0
 );
 CREATE TABLE category (
-    category_id INT AUTO_INCREMENT NOT NULL,
+    category_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY (category_id)
 );
 CREATE TABLE subcategories (
-    idsubcategories INT AUTO_INCREMENT NOT NULL,
+    idsubcategories INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     category_category_id INT NOT NULL,
     PRIMARY KEY (idsubcategories),
@@ -45,12 +46,12 @@ CREATE TABLE subcategories (
     CONSTRAINT fk_subcategories_category1 FOREIGN KEY (category_category_id) REFERENCES category (category_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 CREATE TABLE Post (
-    idPost INT AUTO_INCREMENT NOT NULL,
+    idPost INT NOT NULL AUTO_INCREMENT,
     img VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     price INT NOT NULL,
-    create_time DATETIME,
-    updata_time DATETIME,
+    create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     user_id_user INT NOT NULL,
     subcategories_idsubcategories INT NOT NULL,
     PRIMARY KEY (idPost),
@@ -61,10 +62,12 @@ CREATE TABLE Post (
     CONSTRAINT fk_Post_subcategories1 FOREIGN KEY (subcategories_idsubcategories) REFERENCES subcategories (idsubcategories) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 CREATE TABLE comments (
-    idcomment INT AUTO_INCREMENT NOT NULL,
+    idcomment INT NOT NULL AUTO_INCREMENT,
     comment VARCHAR(255) NOT NULL,
     user_id_user INT NOT NULL,
     Post_idPost INT NOT NULL,
+    create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (idcomment),
     INDEX fk_comments_user1_idx (user_id_user ASC),
     INDEX fk_comments_Post1_idx (Post_idPost ASC),
