@@ -65,14 +65,13 @@ const signUp = async (user) => {
     return "Password must be greater than 8";
   }
   if (!passwordChecking(user.password)) {
-    return "Your password must contain number, upper & lower letter, NO whitespace, No symbol ";
+    return "Your password must contain a number, upper & lower letter, NO whitespace, No symbol ";
   }
   if (user.Phone.length < 10) return "Invalid Phone Number";
   if (passwordChecking(user.password)) {
     user.password = await bcrypt.hash(user.password, Number(process.env.SALT));
     user.Role_idRole = 2;
     user.id_user = null;
-    console.log(user);
     const query = `INSERT INTO user
     (id_user,
     username, 
@@ -93,10 +92,8 @@ const signUp = async (user) => {
       user.Role_idRole,
     ];
     connection.query(query, data, (err, results) => {
+      if (err) throw err.sqlMessage;
       console.log(results);
-      if (err) {
-        throw err.sqlMessage;
-      }
     });
   }
 };
