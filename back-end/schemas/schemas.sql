@@ -1,6 +1,5 @@
 USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the commands do, please go read about them, Its much better of delete them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
@@ -9,7 +8,7 @@ USE market;
 -- If there is any violation between the constraint and the data action, the action is aborted.)
 -- The UNIQUE" constraint ensures that all values in a column are different
 CREATE TABLE Role(
-    idRole INT NOT NULL AUTO_INCREMENT,
+    idRole INT AUTO_INCREMENT NOT NULL,
     type VARCHAR(255) NULL,
     PRIMARY KEY (idRole)
 );
@@ -33,12 +32,12 @@ CREATE TABLE user (
     is_deleted TINYINT DEFAULT 0
 );
 CREATE TABLE category (
-    category_id INT NOT NULL AUTO_INCREMENT,
+    category_id INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY (category_id)
 );
 CREATE TABLE subcategories (
-    idsubcategories INT NOT NULL AUTO_INCREMENT,
+    idsubcategories INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     category_category_id INT NOT NULL,
     PRIMARY KEY (idsubcategories),
