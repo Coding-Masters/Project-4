@@ -24,5 +24,16 @@ mainRouter.post("/create/user",(req,res)=>{
   });
 });
 //A delete request for deleating users based on some information given in the body of the request
-
+mainRouter.delete("/delete/user",(req,res)=>{
+  const query = `DELETE FROM user WHERE email = ?`;
+  const data = [req.body.email];
+  db.query(query,data,(err,result,field)=>{
+    if(err) throw err;
+    res.json("User deleted");
+  });
+});
+//An endpoint for updating the user password
+mainRouter.put("/update/user",(req,res)=>{
+  const query = `UPDATE`
+})
 module.exports = mainRouter;

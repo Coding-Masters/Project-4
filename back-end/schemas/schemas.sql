@@ -1,8 +1,6 @@
-CREATE DATABASE market;
-
 USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the command does, please go read about them, its much better of delete them.
+-- If you don't know what the commands do, please go read about them, its much better of delete them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
@@ -10,21 +8,18 @@ USE market;
 -- This ensures the accuracy and reliability of the data in the table. 
 -- If there is any violation between the constraint and the data action, the action is aborted.)
 -- The UNIQUE" constraint ensures that all values in a column are different
--- 
 CREATE TABLE Role(
-    idRole INT NOT NULL,
+    idRole INT AUTO_INCREMENT NOT NULL,
     type VARCHAR(255) NULL,
     PRIMARY KEY (idRole)
 );
-INSERT INTO Role(idRole,type) VALUES (2,"user");
-INSERT INTO Role(idRole,type) VALUES (1,"admin");
 CREATE TABLE user (
-	id_user INT AUTO_INCREMENT NOT NULL,
+    id_user INt AUTO_INCREMENT NOT NULL,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(32) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    Phone VARCHAR(45) NOT NULL,
+    Phone INT NOT NULL,
     Role_idRole INT NOT NULL,
     created_at DATETIME,
     PRIMARY KEY (id_user),
@@ -66,7 +61,7 @@ CREATE TABLE Post (
     CONSTRAINT fk_Post_subcategories1 FOREIGN KEY (subcategories_idsubcategories) REFERENCES subcategories (idsubcategories) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 CREATE TABLE comments (
-    idcomment INT AUTO_INCREMENT  NOT NULL,
+    idcomment INT AUTO_INCREMENT NOT NULL,
     comment VARCHAR(255) NOT NULL,
     user_id_user INT NOT NULL,
     Post_idPost INT NOT NULL,
