@@ -9,9 +9,9 @@ const register = async (req, res) => {
   }
 };
 //Login
-const logIn = async (req, res) => {
+const logIn =  (req, res) => {
   try {
-    res.json(await signIn(req.body));
+    res.json( signIn(req.body));
   } catch (err) {
     throw err;
   }
