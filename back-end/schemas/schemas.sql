@@ -1,6 +1,5 @@
 USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the commands do, please go read about them, Its much better of delete them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
@@ -11,7 +10,7 @@ USE market;
 -- ON DELETE NO ACTION :NO ACTION means that nothing will happen when you delete from your Subject table to the Topic table.
 -- ON UPDATE NO ACTION: the same of ON DELETE NO ACTION
 CREATE TABLE Role(
-    idRole INT NOT NULL AUTO_INCREMENT,
+    idRole INT AUTO_INCREMENT NOT NULL,
     type VARCHAR(255) NULL,
     PRIMARY KEY (idRole)
 );
@@ -21,7 +20,7 @@ CREATE TABLE user (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(60) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    Phone INT NOT NULL,
+    Phone VARCHAR(255) NOT NULL,
     Role_idRole INT NOT NULL,
     create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
@@ -35,12 +34,12 @@ CREATE TABLE user (
     is_deleted TINYINT DEFAULT 0
 );
 CREATE TABLE category (
-    category_id INT NOT NULL AUTO_INCREMENT,
+    category_id INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY (category_id)
 );
 CREATE TABLE subcategories (
-    idsubcategories INT NOT NULL AUTO_INCREMENT,
+    idsubcategories INT AUTO_INCREMENT NOT NULL,
     name VARCHAR(255) NOT NULL,
     category_category_id INT NOT NULL,
     PRIMARY KEY (idsubcategories),

@@ -2,50 +2,46 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const connection = require("../db");
 let payloads = {};
-let option = {};
-const saveJWTData = (payload, options) => {
-  payloads = payload;
-  option = options;
-};
-const signIn = (user) => {
-  const query = `SELECT * FROM  user WHERE email = "${user.email}"`;
-  connection.query(query, (err, result) => {
+let options = {};
+const signIn = async (req, res) => {
+  const user = req.body;
+  const query = `SELECT * FROM user WHERE email = ?`;
+  connection.query(query, user.email, async (err, result) => {
     if (err) {
       throw err;
     } else {
-      console.log("RESULT: ", result);
       if (result.length) {
-        const role = `SELECT * FROM Role WHERE idRole = "${result[0].Role_idRole}"`;
-        if (bcrypt.compare(user.password, result[0].password)) {
-          connection.query(role, (err, permissions) => {
+        const role = `SELECT * FROM Role WHERE idRole = ?`;
+        console.log(19);
+        if (await bcrypt.compare(user.password, result[0].password)) {
+          console.log(21);
+          connection.query(role, result[0].Role_idRole, (err, permissions) => {
             if (err) {
               throw err;
             } else {
-              const payload = {
+              console.log(26);
+              console.log("P", payloads);
+              console.log("O", options);
+              payloads = {
                 email: result[0].email,
                 permissions: permissions[0].type,
               };
-              console.log(1);
-              const options = {
+              options = {
                 expiresIn: process.env.TOKEN_EXPIRATION,
               };
-              saveJWTData(payload, options);
+
+              res.json(jwt.sign(payloads, process.env.SECRET, options));
+              // }
             }
           });
         }
+        console.log(42);
+        console.log("P", payloads);
+        console.log("O", options);
       } else {
-        payloads = {};
-        option = {};
-        saveJWTData(payloads, option);
+        res.json("Invalid login");
       }
     }
   });
-  // there is a bug in this code which is I wrote as a comment below, I'll fix in the next push
-  // if (JSON.stringify(payloads).length === JSON.stringify(option).length) {
-  //   return "Invalid login";
-  // } else {
-  //   return jwt.sign(payloads, process.env.SECRET, option);
-  // }
 };
-
 module.exports = signIn;
