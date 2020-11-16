@@ -1,6 +1,5 @@
 USE market;
 -- please read the following before you edit anything on the code.
--- If you don't know what the commands do, please go read about them, Its much better of delete them.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
 -- through only that subset of the table to find exact matches.)
 -- ASC: (command is used to sort the data returned in ascending order)
@@ -14,13 +13,14 @@ CREATE TABLE Role(
     PRIMARY KEY (idRole)
 );
 CREATE TABLE user (
-    id_user INT AUTO_INCREMENT NOT NULL,
+    id_user INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
-    password VARCHAR(32) NOT NULL,
+    password VARCHAR(60) NOT NULL,
     address VARCHAR(255) NOT NULL,
     Phone INT NOT NULL,
-    Role_idRole INT NOT NULL DEFAULT 1,
+    Role_idRole INT NOT NULL,
+>>>>>>> cc8efe72997694c8e2849f262e1835cb314d4b7c
     create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user),
@@ -46,7 +46,8 @@ CREATE TABLE subcategories (
     CONSTRAINT fk_subcategories_category1 FOREIGN KEY (category_category_id) REFERENCES category (category_id) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 CREATE TABLE Post (
-    idPost INT AUTO_INCREMENT NOT NULL,
+    idPost INT NOT NULL AUTO_INCREMENT,
+
     img VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     price INT NOT NULL,
@@ -62,7 +63,7 @@ CREATE TABLE Post (
     CONSTRAINT fk_Post_subcategories1 FOREIGN KEY (subcategories_idsubcategories) REFERENCES subcategories (idsubcategories) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 CREATE TABLE comments (
-    idcomment INT AUTO_INCREMENT NOT NULL,
+    idcomment INT NOT NULL AUTO_INCREMENT,
     comment VARCHAR(255) NOT NULL,
     user_id_user INT NOT NULL,
     Post_idPost INT NOT NULL,
