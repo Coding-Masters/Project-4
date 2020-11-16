@@ -8,6 +8,8 @@ USE market;
 -- This ensures the accuracy and reliability of the data in the table. 
 -- If there is any violation between the constraint and the data action, the action is aborted.)
 -- The UNIQUE" constraint ensures that all values in a column are different
+-- ON DELETE NO ACTION :NO ACTION means that nothing will happen when you delete from your Subject table to the Topic table.
+-- ON UPDATE NO ACTION: the same of ON DELETE NO ACTION
 CREATE TABLE Role(
     idRole INT NOT NULL AUTO_INCREMENT,
     type VARCHAR(255) NULL,

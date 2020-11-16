@@ -40,7 +40,7 @@ const signIn = (user) => {
       }
     }
   });
-  // there is a bug in this code which is I wrote it as comment below, I'll fix in next push 
+  // there is a bug in this code which is I wrote as a comment below, I'll fix in the next push
   // if (JSON.stringify(payloads).length === JSON.stringify(option).length) {
   //   return "Invalid login";
   // } else {
