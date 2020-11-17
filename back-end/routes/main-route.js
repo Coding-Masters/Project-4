@@ -34,7 +34,7 @@ mainRouter.post("/create/user",(req,res)=>{
     
   });
 });
-//A delete request for deleating users based on some information given in the body of the request
+//A delete request for deleting users based on some information that's given from the body of the request
 mainRouter.delete("/delete/user",(req,res)=>{
   const query = `DELETE FROM user WHERE email = ?`;
   const data = [req.body.email];

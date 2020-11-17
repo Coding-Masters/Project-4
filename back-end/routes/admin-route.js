@@ -72,7 +72,7 @@ adminRouter.post("/create/user", (req, res) => {
   db.query(query, data, (err, result, fields) => {
     if (err) throw err;
     console.log(result);
-    res.json(`User ${req.body.userName} added successfuly`);
+    res.json(`User ${req.body.userName} added successfully`);
   });
 });
 
@@ -83,7 +83,7 @@ adminRouter.delete("/delete/user", (req, res) => {
   db.query(query, data, (err, result, field) => {
     if (err) throw err;
     console.log(result);
-    res.json("User deleted successfuly");
+    res.json("User deleted successfully");
   });
 });
 
@@ -97,7 +97,7 @@ adminRouter.put("/update/username", (req, res) => {
   db.query(query, data, (err, result, field) => {
     if (err) throw err;
     console.log(result);
-    res.json("User information updated successfuly");
+    res.json("User information updated successfully");
   });
 });
 //=============================================================================
