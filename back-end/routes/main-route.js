@@ -7,7 +7,9 @@ const {
    Home,
    gitAllCategory, 
    updateTocategory, 
-   deleteCategory 
+   deleteCategory ,
+   addSubCategroy,
+gitAllSubCategory
   } = require("../controllers/main-controller");
 const db = require('../db');
 const middleware = require("../middlewares/auth");
@@ -18,6 +20,9 @@ mainRouter.post("/add",add);
 mainRouter.get("/gitCategory",gitAllCategory);
 mainRouter.put("/updateCategory/:name/:id",updateTocategory);
 mainRouter.delete("/deleteCategory/:id",deleteCategory);
+//subCatogry CURD Opration
+mainRouter.post("/:addSubCategroy",addSubCategroy);
+mainRouter.get("/gitSubCategory",gitAllSubCategory);
 
 
 // Welcome page

@@ -6,6 +6,7 @@ let option = {};
 const saveJWTData = (payload, options) => {
   payloads = payload;
   option = options;
+
 };
 const signIn = (user) => {
   const query = `SELECT * FROM  user WHERE email = "${user.email}"`;
@@ -15,7 +16,7 @@ const signIn = (user) => {
     } else {
       console.log("RESULT: ", result);
       if (result.length) {
-        const role = `SELECT * FROM Role WHERE idRole = "${result[0].Role_idRole}"`;
+        const role = `SELECT * FROM role WHERE idRole = "${result[0].Role_idRole}"`;
         if (bcrypt.compare(user.password, result[0].password)) {
           connection.query(role, (err, permissions) => {
             if (err) {
@@ -39,13 +40,14 @@ const signIn = (user) => {
         saveJWTData(payloads, option);
       }
     }
-  });
+  });//
   // there is a bug in this code which is I wrote as a comment below, I'll fix in the next push
-  // if (JSON.stringify(payloads).length === JSON.stringify(option).length) {
-  //   return "Invalid login";
-  // } else {
-  //   return jwt.sign(payloads, process.env.SECRET, option);
-  // }
+  
+   if (JSON.stringify(payloads).length === JSON.stringify(option).length) {
+    return "Invalid login";
+ } else {
+     return jwt.sign(payloads, process.env.SECRET, option);
+   }
 };
 
 module.exports = signIn;

@@ -61,6 +61,7 @@ const passwordChecking = (password) => {
   }
 };
 const signUp = async (user) => {
+  console.log(user);
   if (user.password.length < 8) {
     return "Password must be greater than 8";
   }

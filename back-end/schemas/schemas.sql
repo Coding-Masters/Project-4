@@ -1,3 +1,4 @@
+
 USE market;
 -- please read the following before you edit anything on the code.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
@@ -20,9 +21,8 @@ CREATE TABLE user (
     email VARCHAR(255) NOT NULL,
     password VARCHAR(60) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    Phone INT NOT NULL,
+    Phone VARCHAR(255) NOT NULL,
     Role_idRole INT NOT NULL,
->>>>>>> cc8efe72997694c8e2849f262e1835cb314d4b7c
     create_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     updata_time TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_user),
@@ -77,3 +77,5 @@ CREATE TABLE comments (
     CONSTRAINT fk_comments_user1 FOREIGN KEY (user_id_user) REFERENCES user (id_user) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT fk_comments_Post1 FOREIGN KEY (Post_idPost) REFERENCES Post (idPost) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+INSERT INTO `market`.`Role` (`idRole`, `type`) VALUES ('1', 'Admin');
+INSERT INTO `market`.`Role` (`idRole`, `type`) VALUES ('2', 'user');
