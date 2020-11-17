@@ -94,7 +94,6 @@ const signUp = async (user) => {
     ];
     connection.query(query, data, (err, results) => {
       if (err) throw err.sqlMessage;
-      console.log(results);
     });
   }
 };
