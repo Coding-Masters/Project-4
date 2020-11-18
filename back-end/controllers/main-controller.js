@@ -8,8 +8,8 @@ const createCategory = (req, res) => {
   const data = [req.body.id, req.body.name];
   connection.query(query, data, (err, results) => {
     if (err) throw err;
+    res.json(results);
   });
-  res.json(results);
 };
 // get all categories
 const getAllCategory = (req, res) => {
