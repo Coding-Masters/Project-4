@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import "./App.css";
+import Login from "./Access /login";
+import Register from "./Access /signup";
 
-// Class component
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  render() {
-    return (
-      <div>
-        <h1>HELLO WORLD</h1>
-      </div>
-    );
-  }
-}
-
-/* 
-// functional component
 const App = () => {
   return (
-    <div>
-      <h1>HELLO WORLD</h1>
-    </div>
+    <Router>
+      <div>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </div>
+    </Router>
   );
 };
 export default App;
-*/
