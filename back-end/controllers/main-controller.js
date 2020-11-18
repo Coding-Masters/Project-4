@@ -1,5 +1,5 @@
-const signIn = require("../Access/LogIn");
-const signUp = require("../Access/signup");
+const signIn = require("../userAccess/LogIn");
+const signUp = require("../userAccess/signup");
 
 // sign up
 const register = async (req, res) => {

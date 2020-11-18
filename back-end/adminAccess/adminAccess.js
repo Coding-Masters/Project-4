@@ -48,6 +48,7 @@ const getAllPost = (req, res) => {
   });
 };
 
+
 module.exports = {
   deleteAccount,
   getAllUsersData,

@@ -9,6 +9,7 @@ const { logIn, register, Home } = require("../controllers/main-controller");
 mainRouter.get("/", (req, res) => {
   res.json("HELLO WORLD");
 });
+
 // Welcome page
 mainRouter.get("/", middleware, Home);
 //Login/sign up users

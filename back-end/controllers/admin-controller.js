@@ -6,6 +6,7 @@ const {
   getAllComment,
   getAllPost,
 } = require("../adminAccess/adminAccess");
+
 const deleteUser = deleteAccount;
 const getAllUsers = getAllUsersData;
 const getAllCategories = getAllCategory;
