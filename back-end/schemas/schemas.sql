@@ -1,3 +1,4 @@
+
 USE market;
 -- please read the following before you edit anything on the code.
 -- INDEX: (can be used to efficiently find all rows matching some column in your query and then walk
@@ -48,6 +49,7 @@ CREATE TABLE subcategories (
 );
 CREATE TABLE Post (
     idPost INT NOT NULL AUTO_INCREMENT,
+
     img VARCHAR(255) NOT NULL,
     title VARCHAR(255) NOT NULL,
     price INT NOT NULL,
@@ -75,3 +77,5 @@ CREATE TABLE comments (
     CONSTRAINT fk_comments_user1 FOREIGN KEY (user_id_user) REFERENCES user (id_user) ON DELETE NO ACTION ON UPDATE NO ACTION,
     CONSTRAINT fk_comments_Post1 FOREIGN KEY (Post_idPost) REFERENCES Post (idPost) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
+INSERT INTO `market`.`Role` (`idRole`, `type`) VALUES ('1', 'Admin');
+INSERT INTO `market`.`Role` (`idRole`, `type`) VALUES ('2', 'user');
