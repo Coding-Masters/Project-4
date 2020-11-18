@@ -1,5 +1,6 @@
-const signIn = require("../access/LogIn");
-const signUp = require("../access/signup");
+const signIn = require("../Access/LogIn");
+const signUp = require("../Access/signup");
+
 // sign up
 const register = async (req, res) => {
   try {
@@ -9,7 +10,7 @@ const register = async (req, res) => {
   }
 };
 //Login
-const logIn = signIn
+const logIn = signIn;
 const Home = (req, res) => {
   res.json("Welcome To Your Market");
 };
