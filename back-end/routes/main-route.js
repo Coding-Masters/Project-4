@@ -1,15 +1,30 @@
 
 const express = require('express');
-
+const {
+   add,
+  logIn,
+   register,
+   Home,
+   gitAllCategory, 
+   updateTocategory, 
+   deleteCategory ,
+   addSubCategroy,
+gitAllSubCategory
+  } = require("../controllers/main-controller");
 const db = require('../db');
+const middleware = require("../middlewares/auth");
 require("dotenv").config();
 const mainRouter = express.Router();
-const middleware = require("../middlewares/auth");
-const { logIn, register, Home } = require("../controllers/main-controller");
+//category CURD opration
+mainRouter.post("/add",add);
+mainRouter.get("/gitCategory",gitAllCategory);
+mainRouter.put("/updateCategory/:name/:id",updateTocategory);
+mainRouter.delete("/deleteCategory/:id",deleteCategory);
+//subCatogry CURD Opration
+mainRouter.post("/:addSubCategroy",addSubCategroy);
+mainRouter.get("/gitSubCategory",gitAllSubCategory);
 
-mainRouter.get('/', (req, res) => {
-  res.json('HELLO WORLD');
-});
+
 // Welcome page
 mainRouter.get("/", middleware, Home);
 //Login/sign up users
