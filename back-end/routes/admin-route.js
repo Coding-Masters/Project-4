@@ -13,7 +13,6 @@ adminRouter.use((req, res, next) => {
   console.log("You're using admin router");
   next();
 });
-
 //An endpoint for getting all users in the database
 adminRouter.get("/users", getAllUsers);
 
