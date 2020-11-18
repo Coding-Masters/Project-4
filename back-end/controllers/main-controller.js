@@ -9,7 +9,6 @@ const register = async (req, res) => {
     throw err;
   }
 };
-
 //Login
 const logIn = signIn;
 const Home = (req, res) => {
