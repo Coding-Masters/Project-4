@@ -1,21 +1,30 @@
 import React from "react";
 
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./component/Login/login";
 import Register from "./component/registration/signup.js";
+import notFound from "./component/notFound/notFound";
+import Header from "./component/header/header";
 
 const App = () => {
   return (
     <Router>
-      <div>
+      <Switch>
+        {/* <Route exact path="/" component={header} /> */}
+        <Route exact path="/">
+          <Header />
+        </Route>
         <Route path="/register">
+          <Header />
           <Register />
         </Route>
         <Route path="/login">
+          <Header />
           <Login />
         </Route>
-      </div>
+        <Route component={notFound} />
+      </Switch>
     </Router>
   );
 };
