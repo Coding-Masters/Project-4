@@ -6,7 +6,7 @@ let options = {};
 
 const signIn = async (req, res) => {
   const user = req.body;
-  console.log(user)
+  console.log(user);
   isItEmail = user[Object.keys(user)[0]];
   if (isItEmail.search("@") !== -1) {
     query = `SELECT * FROM user WHERE email = ?`;
@@ -38,6 +38,8 @@ const signIn = async (req, res) => {
               // }
             }
           });
+        } else {
+          res.json("password is incorrect");
         }
       } else {
         res.json("Invalid login");

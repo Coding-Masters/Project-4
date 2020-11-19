@@ -1,5 +1,5 @@
 const {
-  createCategory ,
+  createCategory,
   logIn,
   register,
   Home,
@@ -19,13 +19,13 @@ mainRouter.get("/gitCategory", getAllCategory);
 mainRouter.put("/updateCategory/:name/:id", updateCategory);
 mainRouter.delete("/deleteCategory/:id", deleteCategory);
 //Subcategory CURD Operation
-mainRouter.post("/:addSubcategory", addSubcategory);
+mainRouter.post("/subcategory/:addSubcategory", addSubcategory);
 mainRouter.get("/getSubCategory", getAllSubCategory);
 
 // Welcome page
 mainRouter.get("/", middleware, Home);
 //Login/sign up users
-mainRouter.post("/signUp", register);
-mainRouter.post("/signIn", logIn);
+mainRouter.post("/register", register);
+mainRouter.post("/Login", logIn);
 
 module.exports = mainRouter;
