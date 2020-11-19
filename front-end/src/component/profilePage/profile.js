@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./navBar";
-const ProfilePage = (props) => {
+const Profile = (props) => {
   return (
-    <div className="profilePage">
-      <Navbar/>
+    <div className="profile">
+      <p>Profile</p>
     </div>
   );
 };
-export default ProfilePage;
+export default Profile;
