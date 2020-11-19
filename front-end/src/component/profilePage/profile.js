@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "./navBar";
+import Postdiv from "./postDiv";
 const Profile = (props) => {
   return (
     <div className="profile">
-      <p>Profile</p>
+      <Postdiv/>
     </div>
   );
 };

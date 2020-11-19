@@ -1,8 +1,22 @@
+.app{
+}
+.postDiv{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    position: relative;
+    top: 100px;
+    width: 70%;
+
+}
 .navBar {
   display: flex;
   flex-direction: row;
   align-content: center;
-  gap: 200px;
+  gap: 400px;
+  height: 30px;
+  justify-content: center;
 }
 .navMenu {
   border: 2px solid lightblue;
@@ -13,4 +27,53 @@
 }
 a {
   color: black;
+}
+.post{
+    width : 300px;
+    height: 300px;
+    border: 2px solid black;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    box-shadow: 2px 2px;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #989998;
+  border-radius: 10px;
+}
+.postDesc {
+
+}
+
+.postInformation{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+.profile{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    
+    
+}
+.image{
+    border: 2px solid seagreen;
+    width: 100px;
+    height: 100px;
 }
