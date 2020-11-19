@@ -7,14 +7,37 @@ import Register from "./component/registration/signup.js";
 import Header from "./component/homePage/header/header";
 import Navbar from './component/profilePage/navBar';
 import Profile from "./component/profilePage/profile"
+import Post from "./component/homePage/Post/post";
+
+
 
 const App = () => {
   return (
-    <Router> 
+    <Router>
       <Switch>
-      <Route exact path="/">
-          <Navbar/>
-        </Route>  
+        <Route exact path="/">
+          <Header />
+          <div className="posts">
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+          </div>
+          
+        </Route>
         <Route path="/register">
           <Header />
           <Register />
@@ -22,13 +45,13 @@ const App = () => {
         <Route path="/login">
           <Header />
           <Login />
-          </Route>
+        </Route>
         <Route path="/profile">
-          <Navbar/>
-          <Profile/>
+          <Navbar />
+          <Profile />
         </Route>
         <Route path="/Home">
-          <Navbar/>
+          <Navbar />
         </Route>
       </Switch>
     </Router>
