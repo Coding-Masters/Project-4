@@ -6,7 +6,6 @@ import Login from "./component/Login/login";
 import Register from "./component/registration/signup.js";
 import notFound from "./component/notFound/notFound";
 import Header from "./component/header/header";
-import Register from "./component/registration/signup.js";
 import Navbar from './component/profilePage/navBar';
 
 
