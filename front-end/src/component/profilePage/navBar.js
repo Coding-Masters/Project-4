@@ -8,7 +8,7 @@ const Navbar = (props) => {
     <div className="navBar">
       <Logo/>
       <Navmenu/>
-      <Link to="/profile"> Profilepage</Link>
+      <Link to="/profile" id="profileLogo"> <i class="far fa-user-circle"></i></Link>
     </div>
   );
 };
