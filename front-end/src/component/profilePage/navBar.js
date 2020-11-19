@@ -7,7 +7,7 @@ const Navbar = (props) => {
     <div className="navBar">
       <Logo/>
       <Navmenu/>
-      <Link to="/profilepage">Profile Icon</Link>
+      <Link to="/profile">Profile Icon</Link>
     </div>
   );
 };

@@ -1,16 +1,16 @@
-.navBar{
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    gap: 200px;
+.navBar {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: 200px;
 }
-.navMenu{
-    border: 2px solid lightblue;
-    background-color: lightblue;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
+.navMenu {
+  border: 2px solid lightblue;
+  background-color: lightblue;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
 }
-a{
-    color:black
+a {
+  color: black;
 }
