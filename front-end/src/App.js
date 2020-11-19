@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
+
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
-import Login from "./Access /login";
-import Register from "./Access /signup";
+import Login from "./component/Login/login";
+import Register from "./component/registration/signup.js";
 
 const App = () => {
   return (
