@@ -8,6 +8,7 @@ import Header from "./component/homePage/header/header";
 import Navbar from './component/profilePage/navBar';
 import Profile from "./component/profilePage/profile"
 import Post from "./component/homePage/Post/post";
+import Footer from "./component/homePage/footer/Footer";
 
 
 
@@ -36,7 +37,7 @@ const App = () => {
             <Post />
             <Post />
           </div>
-          
+          <Footer/>
         </Route>
         <Route path="/register">
           <Header />
